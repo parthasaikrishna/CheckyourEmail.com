@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Validation</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #1a1a1a;
+        }
+
+        h1 {
+            color: rgb(126, 126, 126);
+        }
+
+        form {
+            font-size: 14px;
+            text-align: center;
+            margin: 20px;
+            padding: 72px 26px;
+            border: 1px solid #ccc;
+            border-radius: 12px;
+            box-shadow: 0px 0px 10px #888;
+            background-color: #f1f1f1;
+        }
+
+        input[type="text"] {
+            padding: 7px 5px;
+            width: 100%;
+            margin: 5px 0px 4px -7px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: box-shadow 0.3s, border 0.3s;
+        }
+
+        input[type="text"]:hover {
+            box-shadow: 0px 0px 15px rgb(56, 56, 56);
+            border: 1px solid #555;
+        }
+
+        button[type="button"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 100px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, box-shadow 0.3s;
+            box-shadow:  0px 4px rgb(42, 42, 42);
+        }
+
+        button[type="button"]:hover {
+            background-color: #1a87fb;
+            box-shadow: 0px 0px 4px rgb(42, 42, 42);
+        }
+
+
+        /* Media Query for Mobile Devices */
+        @media (max-width: 600px) {
+            form {
+                padding: 20px;
+            }
+
+            input[type="text"] {
+                padding: 10px;
+                margin: 5px 0;
+            }
+
+            button[type="button"] {
+                padding: 10px 30px;
+            }
+        }
+    </style>
+
+    <script>
+        function validate() {
+            let mail = document.getElementById("userinput").value;
+            let possiblechr = /^([a-zA-Z0-9\._]+)@([a-zA-Z0-9])+\.([a-z]+)(\.[a-z]+)?$/; // Corrected the regex pattern
+
+            if (possiblechr.test(mail)) { // Changed .userinput to .test and used the regular expression pattern
+                alert("You have provided a valid Email ID");
+                return true;
+            } else {
+                alert("You have provided an Incorrect Email ID");
+                return false;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form>
+        <h1>Check Your Email Validation</h1>
+        <input id="userinput" type="text" placeholder="Email ID"><br><br>
+        <button type="button" onclick="validate()">Validate Here</button>
+        <!-- Moved the onclick attribute to the button element -->
+    </form>
+</body>
+
+</html>
